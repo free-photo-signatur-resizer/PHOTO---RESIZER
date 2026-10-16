@@ -3,50 +3,57 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Free-photo-signature-resizer</title>
-<meta name="description" content="Free photo aur signature resize tool: SSC, Bank (IBPS, SBI), NEET/JEE form ke liye 20KB, 50KB mein badlein. Hindi + English. Photo upload nahi hoti. फ्री फोटो और सिग्नेचर साइज़ बदलें।">
+<title>Free Photo & Signature Resizer 20KB 50KB (SSC, Bank, NEET, Instagram) | फ्री फोटो साइज़ बदलें</title>
+<meta name="description" content="Free photo aur signature resize tool: SSC, Bank, NEET, UPSC form, passport size, Instagram, YouTube, 16:9, 9:16. 20KB, 50KB. Hindi + English. Photo upload nahi hoti. फ्री फोटो और सिग्नेचर साइज़ बदलें।">
 <style>
 :root{--bg:#eef3f2;--card:#fff;--tx:#12202b;--mut:#51606b;--pri:#0e7c6b;--on:#fff;--bd:#cdd8d6;--hl:#f2b01e;--err:#b3261e}
 @media (prefers-color-scheme:dark){:root{--bg:#0e1517;--card:#162024;--tx:#eaf2f1;--mut:#9db0ae;--pri:#3cc4ad;--on:#06201b;--bd:#2a3a3d;--hl:#f2b01e;--err:#ff8a80}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 "Noto Sans Devanagari",system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 "Noto Sans Devanagari",system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
 .wrap{max-width:560px;margin:0 auto;padding:16px 16px 40px}
-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px}
+header{display:flex;justify-content:space-between;gap:12px;margin-bottom:8px}
 h1{font-size:1.3rem;line-height:1.3;margin:0 0 4px}
-.sub{color:var(--mut);margin:0 0 14px}
-.lang{flex:none;border:2px solid var(--pri);background:transparent;color:var(--pri);font:inherit;font-weight:700;border-radius:999px;padding:6px 14px;cursor:pointer}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;margin-bottom:14px}
-h2{font-size:1.05rem;margin:0 0 10px}
-details{border:2px solid var(--bd);border-radius:10px;margin-bottom:8px;overflow:hidden}
-summary{padding:13px 14px;font-weight:700;cursor:pointer;min-height:48px}
-.opt{display:block;width:100%;text-align:left;border:0;border-top:1px solid var(--bd);background:transparent;color:var(--tx);font:inherit;padding:13px 14px;min-height:48px;cursor:pointer}
-.opt[aria-pressed="true"]{background:var(--pri);color:var(--on);font-weight:700}
-.row{display:flex;gap:8px;flex-wrap:wrap}
-.src{flex:1 1 30%;min-height:56px;border:2px solid var(--pri);background:transparent;color:var(--pri);font:inherit;font-weight:700;border-radius:10px;cursor:pointer;padding:6px}
-#fname{display:block;margin-top:8px;color:var(--mut);font-size:.9rem;word-break:break-all}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-label{display:block;font-size:.85rem;color:var(--mut)}
-input[type=number],input[type=url]{width:100%;font:inherit;padding:10px;border:2px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx)}
+.sub{color:var(--mut);margin:0 0 12px}
+.lang{flex:none;height:38px;border:2px solid var(--pri);background:transparent;color:var(--pri);font:inherit;font-weight:700;border-radius:999px;padding:0 14px;cursor:pointer}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:14px}
+.up{width:100%;min-height:92px;border:3px dashed var(--pri);border-radius:14px;background:transparent;color:var(--pri);font:inherit;font-weight:800;font-size:1.15rem;cursor:pointer}
+.srcs{display:none;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.srcs button{min-height:60px;border:2px solid var(--bd);border-radius:12px;background:var(--bg);color:var(--tx);font:inherit;font-weight:700;cursor:pointer}
+.srcs b{display:block;font-size:1.5rem;line-height:1.2}
 #urlrow{display:none;gap:8px;margin-top:10px}
 #urlrow button{flex:none;border:0;background:var(--pri);color:var(--on);font:inherit;font-weight:700;border-radius:8px;padding:0 16px}
-.go{width:100%;min-height:54px;border:0;border-radius:12px;background:var(--hl);color:#1a1200;font:inherit;font-weight:800;font-size:1.1rem;cursor:pointer}
+input[type=number],input[type=url]{width:100%;font:inherit;padding:10px;border:2px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx)}
+#fname{display:block;margin-top:8px;color:var(--mut);font-size:.9rem;word-break:break-all}
+.pick{width:100%;min-height:52px;display:flex;justify-content:space-between;align-items:center;gap:8px;border:2px solid var(--pri);border-radius:12px;background:transparent;color:var(--tx);font:inherit;font-weight:700;padding:0 14px;cursor:pointer}
+.pick i{font-style:normal;color:var(--pri);font-size:1.3rem}
+#menu{display:none;max-height:55vh;overflow:auto;margin-top:8px;border:2px solid var(--bd);border-radius:12px}
+#menu h3{margin:0;padding:8px 14px;font-size:.85rem;background:var(--bg);color:var(--mut);position:sticky;top:0}
+#menu button{display:flex;justify-content:space-between;width:100%;gap:8px;text-align:left;border:0;border-top:1px solid var(--bd);background:var(--card);color:var(--tx);font:inherit;padding:12px 14px;min-height:48px;cursor:pointer}
+#menu button small{color:var(--mut);white-space:nowrap}
+#stage{position:relative;overflow:hidden;margin-top:12px;border-radius:10px;touch-action:none;user-select:none;background:#000}
+#im{display:block;width:100%;height:auto;pointer-events:none}
+#fr{position:absolute;border:2px solid var(--hl);box-shadow:0 0 0 9999px rgba(0,0,0,.55);touch-action:none;cursor:move}
+#hd{position:absolute;right:-2px;bottom:-2px;width:34px;height:34px;background:var(--hl);border-radius:8px 0 0 0;touch-action:none}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+label{display:block;font-size:.85rem;color:var(--mut)}
+.go{width:100%;min-height:54px;margin-top:12px;border:0;border-radius:12px;background:var(--hl);color:#1a1200;font:inherit;font-weight:800;font-size:1.1rem;cursor:pointer}
 .go:disabled{opacity:.6}
-button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--hl);outline-offset:2px}
-#out{display:none;text-align:center}
-#out img{max-width:100%;max-height:260px;border:1px solid var(--bd);border-radius:8px;background:#fff}
+button:focus-visible,input:focus-visible{outline:3px solid var(--hl);outline-offset:2px}
+#out{text-align:center}
+#out img{max-width:100%;max-height:280px;border:1px solid var(--bd);border-radius:8px;background:#fff}
 #info{font-weight:700;margin:10px 0}
 #dl{display:inline-block;background:var(--pri);color:var(--on);text-decoration:none;font-weight:800;padding:14px 26px;border-radius:12px}
 #msg{color:var(--err);font-weight:600;margin:10px 0 0}
-#chosen{color:var(--pri);font-weight:700;margin:8px 0 0}
-.note{color:var(--mut);font-size:.88rem}
+.note{color:var(--mut);font-size:.88rem;margin:8px 0 0}
 .priv{border-left:4px solid var(--pri);padding-left:10px;margin:0 0 14px;font-size:.92rem}
+.hide{display:none}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
   <div>
-    <h1>Free-photo-signature-resizer<br>फ्री फोटो और सिग्नेचर साइज़ बदलें</h1>
+    <h1>Free Photo &amp; Signature Resizer<br>फ्री फोटो और सिग्नेचर साइज़ बदलें</h1>
     <p class="sub" data-k="sub"></p>
   </div>
   <button class="lang" id="lang" type="button">English</button>
@@ -54,40 +61,37 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid
 <p class="priv" data-k="priv"></p>
 
 <div class="card">
-  <h2 data-k="s1"></h2>
-  <p class="note" data-k="hint"></p>
-  <div id="docs"></div>
-  <p id="chosen"></p>
-  <p class="note" data-k="warn"></p>
-</div>
-
-<div class="card">
-  <h2 data-k="s2"></h2>
-  <div class="row">
-    <button class="src" id="b1" type="button" data-k="dev"></button>
-    <button class="src" id="b2" type="button" data-k="drv"></button>
-    <button class="src" id="b3" type="button" data-k="urlb"></button>
+  <button class="up" id="up" type="button" data-k="up"></button>
+  <div class="srcs" id="srcs">
+    <button type="button" id="b1"><b>🖼️</b><span data-k="gal"></span></button>
+    <button type="button" id="b2"><b>☁️</b><span data-k="drv"></span></button>
+    <button type="button" id="b3"><b>📷</b><span data-k="cam"></span></button>
+    <button type="button" id="b4"><b>🔗</b><span data-k="urlb"></span></button>
   </div>
   <input id="f1" type="file" accept="image/*" hidden>
   <input id="f2" type="file" accept=".jpg,.jpeg,.png,.webp" hidden>
+  <input id="f3" type="file" accept="image/*" capture="user" hidden>
   <div id="urlrow"><input id="url" type="url" placeholder="https://..."><button id="load" type="button" data-k="load"></button></div>
-  <p class="note" id="drvhint" style="display:none" data-k="drvhint"></p>
+  <p class="note hide" id="drvhint" data-k="drvhint"></p>
   <span id="fname"></span>
 </div>
 
-<div class="card">
-  <h2 data-k="s3"></h2>
+<div class="card hide" id="work">
+  <button class="pick" id="pick" type="button"><span id="plabel"></span><i>▾</i></button>
+  <div id="menu"></div>
+  <div id="stage"><img id="im" alt=""><div id="fr"><div id="hd"></div></div></div>
+  <p class="note" data-k="gest"></p>
   <div class="grid">
-    <div><label for="w" data-k="w"></label><input id="w" type="number" inputmode="numeric" min="20" max="3000" placeholder="auto"></div>
-    <div><label for="h" data-k="h"></label><input id="h" type="number" inputmode="numeric" min="20" max="3000" placeholder="auto"></div>
-    <div><label for="kb" data-k="kb"></label><input id="kb" type="number" inputmode="numeric" min="5" max="2000" value="50"></div>
+    <div><label for="w" data-k="w"></label><input id="w" type="number" inputmode="numeric" min="20" max="4000" placeholder="auto"></div>
+    <div><label for="h" data-k="h"></label><input id="h" type="number" inputmode="numeric" min="20" max="4000" placeholder="auto"></div>
+    <div><label for="kb" data-k="kb"></label><input id="kb" type="number" inputmode="numeric" min="5" max="5000" value="100"></div>
   </div>
-  <p class="note" data-k="auto"></p>
+  <p class="note" data-k="warn"></p>
   <button class="go" id="go" type="button" data-k="go"></button>
   <p id="msg" role="alert"></p>
 </div>
 
-<div class="card" id="out">
+<div class="card hide" id="out">
   <img id="prev" alt="">
   <div id="info"></div>
   <a id="dl" href="#" download="photo.jpg" data-k="dl"></a>
@@ -97,136 +101,172 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid
 
 <script>
 var T={
-hi:{sub:"फॉर्म की KB लिमिट में फोटो या सिग्नेचर — फ्री, फोन पर।",
+hi:{sub:"फोटो या सिग्नेचर को फॉर्म या सोशल मीडिया के साइज़ में बदलें। फ्री, फोन पर।",
 priv:"आपकी फोटो कहीं अपलोड नहीं होती। सब कुछ आपके फोन में ही होता है।",
-s1:"1. कौन सा फॉर्म या डॉक्यूमेंट?",hint:"फॉर्म का नाम दबाइए, सूची खुलेगी। पढ़कर अपनी फोटो या सिग्नेचर के साइज़ पर दबाइए।",
-warn:"ध्यान दें: ये साइज़ आम तौर पर लगने वाले हैं। हर साल या भर्ती में नियम बदल सकते हैं (जैसे रेलवे RRB)। फॉर्म की नोटिफिकेशन में लिखा साइज़ ज़रूर मिलाएँ, और ज़रूरत हो तो नीचे खुद बदलें।",
-s2:"2. फोटो कहाँ से लें?",dev:"📱 डिवाइस (गैलरी)",drv:"☁️ Google Drive / फाइल्स",urlb:"🔗 इमेज URL",
-drvhint:"खुलने वाली फाइल विंडो में ऊपर-बाएँ ☰ दबाकर Google Drive चुनें।",load:"लोड करें",
-urlfail:"इस लिंक से फोटो नहीं खुली। पहले फोटो डाउनलोड करके 'डिवाइस' से चुनें।",
-s3:"3. साइज़ जाँचें",w:"चौड़ाई (px)",h:"ऊँचाई (px)",kb:"अधिकतम KB",
-auto:"चौड़ाई और ऊँचाई खाली छोड़ेंगे तो फोटो का अपना अनुपात रहेगा।",
-go:"साइज़ बदलें",wait:"हो रहा है…",nofile:"पहले फोटो चुनें।",bad:"साइज़ के नंबर सही भरें।",
+up:"📤 फोटो अपलोड करें",gal:"गैलरी",drv:"Google Drive",cam:"फोटो खींचें",urlb:"इमेज URL",load:"लोड करें",
+drvhint:"फाइल विंडो में ☰ या 'Browse' दबाकर Google Drive चुनें। न दिखे तो Drive ऐप में फोटो 'डाउनलोड' करें, फिर 'गैलरी' से चुनें।",
+urlfail:"इस लिंक से फोटो नहीं खुली। पहले फोटो डाउनलोड करके 'गैलरी' से चुनें।",
+pick:"साइज़ चुनें",gest:"उंगली से चौखट खिसकाएँ। दो उंगलियों से छोटा/बड़ा करें। कोने के पीले हिस्से को खींचकर भी बदल सकते हैं।",
+w:"चौड़ाई (px)",h:"ऊँचाई (px)",kb:"अधिकतम KB",
+warn:"ध्यान दें: फॉर्म के साइज़ हर भर्ती में बदल सकते हैं। फॉर्म की नोटिफिकेशन से साइज़ ज़रूर मिलाएँ।",
+go:"साइज़ बदलें",wait:"हो रहा है…",bad:"साइज़ के नंबर सही भरें।",
 fail:"इतनी छोटी KB में यह फोटो नहीं आ सकती। चौड़ाई और ऊँचाई कम करके दोबारा करें।",
-res:"नई फोटो",dl:"डाउनलोड करें",picked:"चुना",
-tip:"सुझाव: फोटो सीधी लें, चेहरा बीच में रखें। हस्ताक्षर सफ़ेद कागज़ पर काली पेन से करें और साफ़ फोटो लें।"},
-en:{sub:"Fit your photo or signature to the form's KB limit — free, on your phone.",
+res:"नई फोटो",dl:"डाउनलोड करें",
+tip:"सुझाव: फोटो सीधी लें, चेहरा बीच में रखें। हस्ताक्षर सफ़ेद कागज़ पर काली पेन से करें।"},
+en:{sub:"Resize photo or signature for forms and social media. Free, on your phone.",
 priv:"Your photo is never uploaded. Everything happens inside your phone.",
-s1:"1. Which form or document?",hint:"Tap a form name to open its list. Read it, then tap the size you need for your photo or signature.",
-warn:"Note: these are commonly used sizes. Rules change between years and recruitments (for example Railway RRB). Always match the size in your form's notification, and edit it below if needed.",
-s2:"2. Where is your photo?",dev:"📱 Device (Gallery)",drv:"☁️ Google Drive / Files",urlb:"🔗 Image URL",
-drvhint:"In the file window that opens, tap ☰ at the top-left and choose Google Drive.",load:"Load",
-urlfail:"Could not open an image from this link. Download the photo first and pick it with 'Device'.",
-s3:"3. Check size",w:"Width (px)",h:"Height (px)",kb:"Max KB",
-auto:"Leave width and height empty to keep the photo's own shape.",
-go:"Resize",wait:"Working…",nofile:"Choose a photo first.",bad:"Enter valid size numbers.",
+up:"📤 Upload Photo",gal:"Gallery",drv:"Google Drive",cam:"Take photo",urlb:"Image URL",load:"Load",
+drvhint:"In the file window tap ☰ or 'Browse' and choose Google Drive. If not visible, download the photo in the Drive app, then pick it from 'Gallery'.",
+urlfail:"Could not open an image from this link. Download the photo first and pick it from 'Gallery'.",
+pick:"Select size",gest:"Drag the frame with a finger. Pinch with two fingers to make it smaller or bigger. You can also drag the yellow corner.",
+w:"Width (px)",h:"Height (px)",kb:"Max KB",
+warn:"Note: form sizes can change with every recruitment. Always match the size in your form's notification.",
+go:"Resize",wait:"Working…",bad:"Enter valid size numbers.",
 fail:"Cannot fit this image under that KB at this size. Reduce width and height and try again.",
-res:"New image",dl:"Download",picked:"Selected",
-tip:"Tip: take the photo straight, face in the centre. Sign with a black pen on white paper and take a clear photo."}
+res:"New image",dl:"Download",
+tip:"Tip: take the photo straight, face in the centre. Sign with a black pen on white paper."}
 };
-var PH={hi:"फोटो",en:"Photo"},SG={hi:"हस्ताक्षर",en:"Signature"};
-var DOCS=[
-{n:{hi:"SSC (CGL, CHSL, MTS, GD)",en:"SSC (CGL, CHSL, MTS, GD)"},i:[
- {l:PH,t:"200×260 px · 20–50 KB",w:200,h:260,kb:50,f:"photo.jpg"},
- {l:SG,t:"140×60 px · 10–20 KB",w:140,h:60,kb:20,f:"signature.jpg"}]},
-{n:{hi:"बैंक: IBPS / SBI (PO, Clerk)",en:"Bank: IBPS / SBI (PO, Clerk)"},i:[
- {l:PH,t:"200×230 px · 20–50 KB",w:200,h:230,kb:50,f:"photo.jpg"},
- {l:SG,t:"140×60 px · 10–20 KB",w:140,h:60,kb:20,f:"signature.jpg"}]},
-{n:{hi:"NTA (NEET / JEE Main)",en:"NTA (NEET / JEE Main)"},i:[
- {l:PH,t:"350×450 px · 10–200 KB",w:350,h:450,kb:200,f:"photo.jpg"},
- {l:SG,t:"200×80 px · 4–30 KB",w:200,h:80,kb:30,f:"signature.jpg"}]},
-{n:{hi:"सिर्फ KB लिमिट (कोई भी फोटो)",en:"Only a KB limit (any photo)"},i:[
- {l:{hi:"20 KB तक",en:"Up to 20 KB"},t:"",w:0,h:0,kb:20,f:"photo.jpg"},
- {l:{hi:"50 KB तक",en:"Up to 50 KB"},t:"",w:0,h:0,kb:50,f:"photo.jpg"},
- {l:{hi:"100 KB तक",en:"Up to 100 KB"},t:"",w:0,h:0,kb:100,f:"photo.jpg"},
- {l:{hi:"200 KB तक",en:"Up to 200 KB"},t:"",w:0,h:0,kb:200,f:"photo.jpg"}]}
+/* [name, width, height, maxKB] ; width/height 0 = free */
+var G=[
+{h:{hi:"सोशल मीडिया",en:"Social media"},i:[["Instagram Post (1:1)",1080,1080,2000],["Instagram Portrait (4:5)",1080,1350,2000],["Instagram Story / Reel (9:16)",1080,1920,2000],["Facebook Post",1200,630,2000],["YouTube Community Post (1:1)",1080,1080,2000],["YouTube Thumbnail (16:9)",1280,720,2000],["X / Twitter Post (16:9)",1600,900,2000],["16:9 Landscape",1920,1080,2000],["9:16 Portrait",1080,1920,2000]]},
+{h:{hi:"पासपोर्ट साइज़",en:"Passport size"},i:[["Passport Size 3.5×4.5 cm",413,531,300]]},
+{h:{hi:"परीक्षा और नौकरी फॉर्म",en:"Exam & job forms"},i:[["SSC Photo",200,260,50],["SSC Signature",140,60,20],["Bank (IBPS/SBI) Photo",200,230,50],["Bank (IBPS/SBI) Signature",140,60,20],["NEET / JEE Photo",350,450,200],["NEET / JEE Signature",200,80,30],["UPSC Photo",350,350,300]]},
+{h:{hi:"सिर्फ KB लिमिट",en:"Only a KB limit"},i:[["Up to 20 KB",0,0,20],["Up to 50 KB",0,0,50],["Up to 100 KB",0,0,100],["Up to 200 KB",0,0,200]]},
+{h:{hi:"अपना साइज़",en:"Custom"},i:[["Custom (free crop)",0,0,100]]}
 ];
-var L="hi",file=null,last=null,fname="photo.jpg",sel=null;
+var L="hi",file=null,srcUrl=null,asp=null,fr={x:0,y:0,w:0,h:0},chosen=null,last=null;
 var $=function(i){return document.getElementById(i)};
+var im=$("im"),frame=$("fr");
 
-function buildDocs(){
-  var c=$("docs");c.innerHTML="";
-  DOCS.forEach(function(d,di){
-    var el=document.createElement("details"),s=document.createElement("summary");
-    s.textContent=d.n[L];el.appendChild(s);
-    d.i.forEach(function(it,ii){
-      var b=document.createElement("button");b.type="button";b.className="opt";
-      b.textContent=it.l[L]+(it.t?" — "+it.t:"");
-      b.setAttribute("aria-pressed",sel&&sel[0]===di&&sel[1]===ii);
-      b.onclick=function(){sel=[di,ii];apply(it,d);buildDocs();document.querySelectorAll("details")[di].open=true};
-      el.appendChild(b);
-    });
-    if(sel&&sel[0]===di)el.open=true;
-    c.appendChild(el);
-  });
-  if(sel){var d=DOCS[sel[0]],it=d.i[sel[1]];$("chosen").textContent="✔ "+T[L].picked+": "+d.n[L]+" — "+it.l[L]}
-}
-function apply(it){
-  $("w").value=it.w||"";$("h").value=it.h||"";$("kb").value=it.kb;
-  fname=it.f;$("dl").download=fname;
-}
-function showInfo(){$("info").textContent=T[L].res+": "+last.kb+" KB · "+last.w+"×"+last.h+" px"}
 function render(){
   document.querySelectorAll("[data-k]").forEach(function(e){e.textContent=T[L][e.dataset.k]});
   document.documentElement.lang=L;
   $("lang").textContent=L==="hi"?"English":"हिंदी";
-  buildDocs();
-  if(last)showInfo();
+  $("plabel").textContent=chosen?chosen:T[L].pick;
+  buildMenu();
+  if(last)info();
 }
+function info(){$("info").textContent=T[L].res+": "+last.kb+" KB · "+last.w+"×"+last.h+" px"}
 $("lang").onclick=function(){L=L==="hi"?"en":"hi";render()};
-function pick(f){file=f||null;$("fname").textContent=f?f.name:"";$("msg").textContent=""}
-$("b1").onclick=function(){$("urlrow").style.display="none";$("drvhint").style.display="none";$("f1").click()};
-$("b2").onclick=function(){$("urlrow").style.display="none";$("drvhint").style.display="block";$("f2").click()};
-$("b3").onclick=function(){$("drvhint").style.display="none";$("urlrow").style.display="flex"};
-$("f1").onchange=function(e){pick(e.target.files[0])};
-$("f2").onchange=function(e){pick(e.target.files[0])};
+
+/* size menu */
+function buildMenu(){
+  var m=$("menu");m.innerHTML="";
+  G.forEach(function(g){
+    var h=document.createElement("h3");h.textContent=g.h[L];m.appendChild(h);
+    g.i.forEach(function(it){
+      var b=document.createElement("button");b.type="button";
+      var n=document.createElement("span");n.textContent=it[0];
+      var s=document.createElement("small");s.textContent=(it[1]?it[1]+"×"+it[2]+" · ":"")+"≤"+it[3]+" KB";
+      b.appendChild(n);b.appendChild(s);
+      b.onclick=function(){choose(it)};
+      m.appendChild(b);
+    });
+  });
+}
+$("pick").onclick=function(){var m=$("menu");m.style.display=m.style.display==="block"?"none":"block"};
+function choose(it){
+  chosen=it[0];$("plabel").textContent=chosen;$("menu").style.display="none";
+  $("w").value=it[1]||"";$("h").value=it[2]||"";$("kb").value=it[3];
+  $("dl").download=(/Signature/.test(it[0])?"signature":"photo")+".jpg";
+  setAsp();initFrame();
+}
+function setAsp(){var w=+$("w").value,h=+$("h").value;asp=(w>0&&h>0)?w/h:null}
+$("w").onchange=$("h").onchange=function(){chosen=null;$("plabel").textContent=T[L].pick;setAsp();initFrame()};
+
+/* photo sources */
+$("up").onclick=function(){var s=$("srcs");s.style.display=s.style.display==="grid"?"none":"grid"};
+function hideExtra(){$("urlrow").style.display="none";$("drvhint").classList.add("hide")}
+$("b1").onclick=function(){hideExtra();$("f1").click()};
+$("b2").onclick=function(){hideExtra();$("drvhint").classList.remove("hide");$("f2").click()};
+$("b3").onclick=function(){hideExtra();$("f3").click()};
+$("b4").onclick=function(){hideExtra();$("urlrow").style.display="flex"};
+["f1","f2","f3"].forEach(function(i){$(i).onchange=function(e){pick(e.target.files[0]);e.target.value=""}});
 $("load").onclick=async function(){
-  var u=$("url").value.trim();if(!u)return;
-  $("msg").textContent="";
+  var u=$("url").value.trim();if(!u)return;$("msg").textContent="";
   try{
     var r=await fetch(u),b=await r.blob();
     if(!r.ok||b.type.indexOf("image")!==0)throw 0;
-    pick(new File([b],"image-from-url",{type:b.type}));
-  }catch(e){$("msg").textContent=T[L].urlfail}
+    pick(new File([b],"image",{type:b.type}));
+  }catch(e){alert(T[L].urlfail)}
 };
+function pick(f){
+  if(!f)return;
+  file=f;$("fname").textContent=f.name;$("msg").textContent="";
+  if(srcUrl)URL.revokeObjectURL(srcUrl);
+  srcUrl=URL.createObjectURL(f);
+  im.onload=function(){$("work").classList.remove("hide");setAsp();initFrame()};
+  im.src=srcUrl;
+  $("srcs").style.display="none";$("urlrow").style.display="none";$("out").classList.add("hide");
+}
 
+/* crop frame */
+function initFrame(){
+  if(!im.naturalWidth)return;
+  var dw=im.clientWidth,dh=im.clientHeight,w=dw,h=dh;
+  if(asp){if(dw/dh>asp){h=dh;w=h*asp}else{w=dw;h=w/asp}}
+  else{w=dw*.9;h=dh*.9}
+  fr={x:(dw-w)/2,y:(dh-h)/2,w:w,h:h};paint();
+}
+window.addEventListener("resize",initFrame);
+function paint(){var s=frame.style;s.left=fr.x+"px";s.top=fr.y+"px";s.width=fr.w+"px";s.height=fr.h+"px"}
+function place(x,y,w,h){
+  var dw=im.clientWidth,dh=im.clientHeight;
+  w=Math.max(40,w);h=Math.max(40,h);
+  var s=Math.min(1,dw/w,dh/h);w*=s;h*=s;
+  x=Math.min(Math.max(0,x),dw-w);y=Math.min(Math.max(0,y),dh-h);
+  fr={x:x,y:y,w:w,h:h};paint();
+}
+var ptrs={},g=null;
+function startG(hd){
+  var k=Object.keys(ptrs),p=ptrs[k[0]];
+  g={f:{x:fr.x,y:fr.y,w:fr.w,h:fr.h},n:k.length,hd:hd,p:{x:p.x,y:p.y}};
+  if(k.length===2){var a=ptrs[k[0]],b=ptrs[k[1]];g.d=Math.hypot(a.x-b.x,a.y-b.y)||1}
+}
+frame.onpointerdown=function(e){
+  e.preventDefault();frame.setPointerCapture(e.pointerId);
+  ptrs[e.pointerId]={x:e.clientX,y:e.clientY};
+  startG(e.target===$("hd")||(g&&g.hd));
+};
+frame.onpointermove=function(e){
+  if(!ptrs[e.pointerId]||!g)return;
+  ptrs[e.pointerId]={x:e.clientX,y:e.clientY};
+  var k=Object.keys(ptrs),f=g.f;
+  if(k.length===2&&g.n===2){
+    var a=ptrs[k[0]],b=ptrs[k[1]],sc=Math.hypot(a.x-b.x,a.y-b.y)/g.d;
+    var nw=f.w*sc,nh=asp?nw/asp:f.h*sc;
+    place(f.x+f.w/2-nw/2,f.y+f.h/2-nh/2,nw,nh);
+  }else if(k.length===1&&g.n===1){
+    var dx=e.clientX-g.p.x,dy=e.clientY-g.p.y;
+    if(g.hd){var w=f.w+dx;place(f.x,f.y,w,asp?w/asp:f.h+dy)}
+    else place(f.x+dx,f.y+dy,f.w,f.h);
+  }
+};
+function endP(e){delete ptrs[e.pointerId];if(Object.keys(ptrs).length)startG(false);else g=null}
+frame.onpointerup=frame.onpointercancel=endP;
+
+/* resize */
 function toBlob(cv,q){return new Promise(function(r){cv.toBlob(r,"image/jpeg",q)})}
-function loadImg(f){return new Promise(function(ok,no){
-  var im=new Image(),u=URL.createObjectURL(f);
-  im.onload=function(){URL.revokeObjectURL(u);ok(im)};
-  im.onerror=no;im.src=u;
-})}
-
 $("go").onclick=async function(){
   var msg=$("msg");msg.textContent="";
-  if(!file){msg.textContent=T[L].nofile;return}
   var w=Math.round(+$("w").value),h=Math.round(+$("h").value),kb=+$("kb").value;
-  var autoSize=!w&&!h;
-  if(!(kb>=5)||(!autoSize&&!(w>=20&&h>=20))){msg.textContent=T[L].bad;return}
+  var k=im.naturalWidth/im.clientWidth,sx=fr.x*k,sy=fr.y*k,sw=fr.w*k,sh=fr.h*k;
+  if(!(w>0&&h>0)){var c=Math.min(1,1200/Math.max(sw,sh));w=Math.round(sw*c);h=Math.round(sh*c)}
+  if(!(kb>=5)||w<20||h<20){msg.textContent=T[L].bad;return}
   var btn=$("go");btn.disabled=true;btn.textContent=T[L].wait;
   try{
-    var im=await loadImg(file),iw=im.naturalWidth,ih=im.naturalHeight;
-    if(autoSize){var k=Math.min(1,800/Math.max(iw,ih));w=Math.round(iw*k);h=Math.round(ih*k)}
     var cv=document.createElement("canvas");cv.width=w;cv.height=h;
-    var cx=cv.getContext("2d");
-    cx.fillStyle="#fff";cx.fillRect(0,0,w,h);
-    var s=Math.max(w/iw,h/ih),dw=iw*s,dh=ih*s;
-    cx.drawImage(im,(w-dw)/2,(h-dh)/2,dw,dh);
-    var limit=kb*1024,lo=0.05,hi=0.95,best=null;
-    var tiny=await toBlob(cv,lo);
-    if(tiny.size>limit){msg.textContent=T[L].fail}
+    var cx=cv.getContext("2d");cx.fillStyle="#fff";cx.fillRect(0,0,w,h);
+    cx.drawImage(im,sx,sy,sw,sh,0,0,w,h);
+    var limit=kb*1024,lo=0.05,hi=0.95,best=await toBlob(cv,lo);
+    if(best.size>limit){msg.textContent=T[L].fail}
     else{
-      best=tiny;
-      for(var i=0;i<8;i++){
-        var mid=(lo+hi)/2,b=await toBlob(cv,mid);
-        if(b.size<=limit){best=b;lo=mid}else{hi=mid}
-      }
-      if(last&&last.url)URL.revokeObjectURL(last.url);
+      for(var i=0;i<8;i++){var mid=(lo+hi)/2,b=await toBlob(cv,mid);if(b.size<=limit){best=b;lo=mid}else hi=mid}
+      if(last)URL.revokeObjectURL(last.url);
       var url=URL.createObjectURL(best);
       last={url:url,kb:(best.size/1024).toFixed(1),w:w,h:h};
-      $("prev").src=url;$("dl").href=url;$("dl").download=fname;
-      $("out").style.display="block";showInfo();
-      $("out").scrollIntoView({behavior:"smooth"});
+      $("prev").src=url;$("dl").href=url;info();
+      $("out").classList.remove("hide");$("out").scrollIntoView({behavior:"smooth"});
     }
   }catch(e){msg.textContent=T[L].fail}
   btn.disabled=false;btn.textContent=T[L].go;
