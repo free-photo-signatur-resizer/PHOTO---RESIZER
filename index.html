@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Photo & Signature Resizer | फोटो और हस्ताक्षर साइज़</title>
-<meta name="description" content="Form ke liye photo aur signature ko 20KB, 50KB mein badlein. Free, Hindi + English, phone par. Photo upload nahi hoti.">
+<title>Free photo signature resizer</title>
+<meta name="description" content="Free photo aur signature resize tool: SSC, Bank (IBPS, SBI), NEET/JEE form ke liye 20KB, 50KB mein badlein. Hindi + English. Photo upload nahi hoti. फ्री फोटो और सिग्नेचर साइज़ बदलें।">
 <style>
 :root{--bg:#eef3f2;--card:#fff;--tx:#12202b;--mut:#51606b;--pri:#0e7c6b;--on:#fff;--bd:#cdd8d6;--hl:#f2b01e;--err:#b3261e}
 @media (prefers-color-scheme:dark){:root{--bg:#0e1517;--card:#162024;--tx:#eaf2f1;--mut:#9db0ae;--pri:#3cc4ad;--on:#06201b;--bd:#2a3a3d;--hl:#f2b01e;--err:#ff8a80}}
@@ -12,28 +12,32 @@
 body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 "Noto Sans Devanagari",system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
 .wrap{max-width:560px;margin:0 auto;padding:16px 16px 40px}
 header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px}
-h1{font-size:1.45rem;line-height:1.25;margin:0 0 4px}
+h1{font-size:1.3rem;line-height:1.3;margin:0 0 4px}
 .sub{color:var(--mut);margin:0 0 14px}
 .lang{flex:none;border:2px solid var(--pri);background:transparent;color:var(--pri);font:inherit;font-weight:700;border-radius:999px;padding:6px 14px;cursor:pointer}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;margin-bottom:14px}
 h2{font-size:1.05rem;margin:0 0 10px}
+details{border:2px solid var(--bd);border-radius:10px;margin-bottom:8px;overflow:hidden}
+summary{padding:13px 14px;font-weight:700;cursor:pointer;min-height:48px}
+.opt{display:block;width:100%;text-align:left;border:0;border-top:1px solid var(--bd);background:transparent;color:var(--tx);font:inherit;padding:13px 14px;min-height:48px;cursor:pointer}
+.opt[aria-pressed="true"]{background:var(--pri);color:var(--on);font-weight:700}
 .row{display:flex;gap:8px;flex-wrap:wrap}
-.chip{flex:1 1 30%;min-height:48px;border:2px solid var(--bd);background:transparent;color:var(--tx);font:inherit;font-weight:600;border-radius:10px;cursor:pointer}
-.chip[aria-pressed="true"]{border-color:var(--pri);background:var(--pri);color:var(--on)}
-.file{display:block;border:2px dashed var(--pri);border-radius:12px;padding:22px 12px;text-align:center;font-weight:700;color:var(--pri);cursor:pointer}
-.file input{display:none}
+.src{flex:1 1 30%;min-height:56px;border:2px solid var(--pri);background:transparent;color:var(--pri);font:inherit;font-weight:700;border-radius:10px;cursor:pointer;padding:6px}
 #fname{display:block;margin-top:8px;color:var(--mut);font-size:.9rem;word-break:break-all}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 label{display:block;font-size:.85rem;color:var(--mut)}
-input[type=number]{width:100%;font:inherit;padding:10px;border:2px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx)}
+input[type=number],input[type=url]{width:100%;font:inherit;padding:10px;border:2px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx)}
+#urlrow{display:none;gap:8px;margin-top:10px}
+#urlrow button{flex:none;border:0;background:var(--pri);color:var(--on);font:inherit;font-weight:700;border-radius:8px;padding:0 16px}
 .go{width:100%;min-height:54px;border:0;border-radius:12px;background:var(--hl);color:#1a1200;font:inherit;font-weight:800;font-size:1.1rem;cursor:pointer}
 .go:disabled{opacity:.6}
-button:focus-visible,input:focus-visible,.file:focus-within{outline:3px solid var(--hl);outline-offset:2px}
+button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--hl);outline-offset:2px}
 #out{display:none;text-align:center}
 #out img{max-width:100%;max-height:260px;border:1px solid var(--bd);border-radius:8px;background:#fff}
 #info{font-weight:700;margin:10px 0}
 #dl{display:inline-block;background:var(--pri);color:var(--on);text-decoration:none;font-weight:800;padding:14px 26px;border-radius:12px}
 #msg{color:var(--err);font-weight:600;margin:10px 0 0}
+#chosen{color:var(--pri);font-weight:700;margin:8px 0 0}
 .note{color:var(--mut);font-size:.88rem}
 .priv{border-left:4px solid var(--pri);padding-left:10px;margin:0 0 14px;font-size:.92rem}
 </style>
@@ -42,40 +46,43 @@ button:focus-visible,input:focus-visible,.file:focus-within{outline:3px solid va
 <div class="wrap">
 <header>
   <div>
-    <h1 data-k="title"></h1>
+    <h1>Free photo signature resizer<br>फ्री फोटो और सिग्नेचर साइज़ बदलें</h1>
     <p class="sub" data-k="sub"></p>
   </div>
   <button class="lang" id="lang" type="button">English</button>
 </header>
-
 <p class="priv" data-k="priv"></p>
 
 <div class="card">
   <h2 data-k="s1"></h2>
-  <div class="row" role="group">
-    <button class="chip" type="button" data-p="photo" aria-pressed="true" data-k="photo"></button>
-    <button class="chip" type="button" data-p="sign" aria-pressed="false" data-k="sign"></button>
-    <button class="chip" type="button" data-p="custom" aria-pressed="false" data-k="custom"></button>
-  </div>
+  <p class="note" data-k="hint"></p>
+  <div id="docs"></div>
+  <p id="chosen"></p>
+  <p class="note" data-k="warn"></p>
 </div>
 
 <div class="card">
   <h2 data-k="s2"></h2>
-  <label class="file">
-    <span data-k="pick"></span>
-    <input id="file" type="file" accept="image/*">
-  </label>
+  <div class="row">
+    <button class="src" id="b1" type="button" data-k="dev"></button>
+    <button class="src" id="b2" type="button" data-k="drv"></button>
+    <button class="src" id="b3" type="button" data-k="urlb"></button>
+  </div>
+  <input id="f1" type="file" accept="image/*" hidden>
+  <input id="f2" type="file" accept=".jpg,.jpeg,.png,.webp" hidden>
+  <div id="urlrow"><input id="url" type="url" placeholder="https://..."><button id="load" type="button" data-k="load"></button></div>
+  <p class="note" id="drvhint" style="display:none" data-k="drvhint"></p>
   <span id="fname"></span>
 </div>
 
 <div class="card">
   <h2 data-k="s3"></h2>
   <div class="grid">
-    <div><label for="w" data-k="w"></label><input id="w" type="number" inputmode="numeric" min="20" max="3000" value="200"></div>
-    <div><label for="h" data-k="h"></label><input id="h" type="number" inputmode="numeric" min="20" max="3000" value="230"></div>
+    <div><label for="w" data-k="w"></label><input id="w" type="number" inputmode="numeric" min="20" max="3000" placeholder="auto"></div>
+    <div><label for="h" data-k="h"></label><input id="h" type="number" inputmode="numeric" min="20" max="3000" placeholder="auto"></div>
     <div><label for="kb" data-k="kb"></label><input id="kb" type="number" inputmode="numeric" min="5" max="2000" value="50"></div>
   </div>
-  <p class="note" data-k="warn"></p>
+  <p class="note" data-k="auto"></p>
   <button class="go" id="go" type="button" data-k="go"></button>
   <p id="msg" role="alert"></p>
 </div>
@@ -85,55 +92,103 @@ button:focus-visible,input:focus-visible,.file:focus-within{outline:3px solid va
   <div id="info"></div>
   <a id="dl" href="#" download="photo.jpg" data-k="dl"></a>
 </div>
-
 <p class="note" data-k="tip"></p>
 </div>
 
 <script>
 var T={
-hi:{title:"फोटो और हस्ताक्षर का साइज़ बदलें",sub:"फॉर्म की KB लिमिट में फोटो या सिग्नेचर — फ्री, फोन पर।",
+hi:{sub:"फॉर्म की KB लिमिट में फोटो या सिग्नेचर — फ्री, फोन पर।",
 priv:"आपकी फोटो कहीं अपलोड नहीं होती। सब कुछ आपके फोन में ही होता है।",
-s1:"1. क्या चाहिए?",photo:"फोटो",sign:"हस्ताक्षर",custom:"अपना साइज़",
-s2:"2. फोटो चुनें",pick:"📷 यहाँ दबाकर फोटो चुनें",
-s3:"3. साइज़ भरें",w:"चौड़ाई (px)",h:"ऊँचाई (px)",kb:"अधिकतम KB",
-warn:"ध्यान दें: हर परीक्षा का साइज़ अलग होता है। अपने फॉर्म की नोटिफिकेशन में लिखा साइज़ यहाँ भरें।",
+s1:"1. कौन सा फॉर्म या डॉक्यूमेंट?",hint:"फॉर्म का नाम दबाइए, सूची खुलेगी। पढ़कर अपनी फोटो या सिग्नेचर के साइज़ पर दबाइए।",
+warn:"ध्यान दें: ये साइज़ आम तौर पर लगने वाले हैं। हर साल या भर्ती में नियम बदल सकते हैं (जैसे रेलवे RRB)। फॉर्म की नोटिफिकेशन में लिखा साइज़ ज़रूर मिलाएँ, और ज़रूरत हो तो नीचे खुद बदलें।",
+s2:"2. फोटो कहाँ से लें?",dev:"📱 डिवाइस (गैलरी)",drv:"☁️ Google Drive / फाइल्स",urlb:"🔗 इमेज URL",
+drvhint:"खुलने वाली फाइल विंडो में ऊपर-बाएँ ☰ दबाकर Google Drive चुनें।",load:"लोड करें",
+urlfail:"इस लिंक से फोटो नहीं खुली। पहले फोटो डाउनलोड करके 'डिवाइस' से चुनें।",
+s3:"3. साइज़ जाँचें",w:"चौड़ाई (px)",h:"ऊँचाई (px)",kb:"अधिकतम KB",
+auto:"चौड़ाई और ऊँचाई खाली छोड़ेंगे तो फोटो का अपना अनुपात रहेगा।",
 go:"साइज़ बदलें",wait:"हो रहा है…",nofile:"पहले फोटो चुनें।",bad:"साइज़ के नंबर सही भरें।",
-fail:"इस साइज़ में फोटो इतनी छोटी KB में नहीं आ सकती। चौड़ाई और ऊँचाई कम करके दोबारा करें।",
-res:"नई फोटो",dl:"डाउनलोड करें",
+fail:"इतनी छोटी KB में यह फोटो नहीं आ सकती। चौड़ाई और ऊँचाई कम करके दोबारा करें।",
+res:"नई फोटो",dl:"डाउनलोड करें",picked:"चुना",
 tip:"सुझाव: फोटो सीधी लें, चेहरा बीच में रखें। हस्ताक्षर सफ़ेद कागज़ पर काली पेन से करें और साफ़ फोटो लें।"},
-en:{title:"Resize Photo & Signature",sub:"Fit your photo or signature to the form's KB limit — free, on your phone.",
+en:{sub:"Fit your photo or signature to the form's KB limit — free, on your phone.",
 priv:"Your photo is never uploaded. Everything happens inside your phone.",
-s1:"1. What do you need?",photo:"Photo",sign:"Signature",custom:"Custom",
-s2:"2. Choose image",pick:"📷 Tap here to choose a photo",
-s3:"3. Enter size",w:"Width (px)",h:"Height (px)",kb:"Max KB",
-warn:"Note: every exam has its own size. Enter the size written in your form's notification.",
+s1:"1. Which form or document?",hint:"Tap a form name to open its list. Read it, then tap the size you need for your photo or signature.",
+warn:"Note: these are commonly used sizes. Rules change between years and recruitments (for example Railway RRB). Always match the size in your form's notification, and edit it below if needed.",
+s2:"2. Where is your photo?",dev:"📱 Device (Gallery)",drv:"☁️ Google Drive / Files",urlb:"🔗 Image URL",
+drvhint:"In the file window that opens, tap ☰ at the top-left and choose Google Drive.",load:"Load",
+urlfail:"Could not open an image from this link. Download the photo first and pick it with 'Device'.",
+s3:"3. Check size",w:"Width (px)",h:"Height (px)",kb:"Max KB",
+auto:"Leave width and height empty to keep the photo's own shape.",
 go:"Resize",wait:"Working…",nofile:"Choose a photo first.",bad:"Enter valid size numbers.",
 fail:"Cannot fit this image under that KB at this size. Reduce width and height and try again.",
-res:"New image",dl:"Download",
+res:"New image",dl:"Download",picked:"Selected",
 tip:"Tip: take the photo straight, face in the centre. Sign with a black pen on white paper and take a clear photo."}
 };
-var L="hi",cur="photo",file=null,last=null;
-var P={photo:[200,230,50,"photo.jpg"],sign:[140,60,20,"signature.jpg"],custom:[300,300,100,"image.jpg"]};
+var PH={hi:"फोटो",en:"Photo"},SG={hi:"हस्ताक्षर",en:"Signature"};
+var DOCS=[
+{n:{hi:"SSC (CGL, CHSL, MTS, GD)",en:"SSC (CGL, CHSL, MTS, GD)"},i:[
+ {l:PH,t:"200×260 px · 20–50 KB",w:200,h:260,kb:50,f:"photo.jpg"},
+ {l:SG,t:"140×60 px · 10–20 KB",w:140,h:60,kb:20,f:"signature.jpg"}]},
+{n:{hi:"बैंक: IBPS / SBI (PO, Clerk)",en:"Bank: IBPS / SBI (PO, Clerk)"},i:[
+ {l:PH,t:"200×230 px · 20–50 KB",w:200,h:230,kb:50,f:"photo.jpg"},
+ {l:SG,t:"140×60 px · 10–20 KB",w:140,h:60,kb:20,f:"signature.jpg"}]},
+{n:{hi:"NTA (NEET / JEE Main)",en:"NTA (NEET / JEE Main)"},i:[
+ {l:PH,t:"350×450 px · 10–200 KB",w:350,h:450,kb:200,f:"photo.jpg"},
+ {l:SG,t:"200×80 px · 4–30 KB",w:200,h:80,kb:30,f:"signature.jpg"}]},
+{n:{hi:"सिर्फ KB लिमिट (कोई भी फोटो)",en:"Only a KB limit (any photo)"},i:[
+ {l:{hi:"20 KB तक",en:"Up to 20 KB"},t:"",w:0,h:0,kb:20,f:"photo.jpg"},
+ {l:{hi:"50 KB तक",en:"Up to 50 KB"},t:"",w:0,h:0,kb:50,f:"photo.jpg"},
+ {l:{hi:"100 KB तक",en:"Up to 100 KB"},t:"",w:0,h:0,kb:100,f:"photo.jpg"},
+ {l:{hi:"200 KB तक",en:"Up to 200 KB"},t:"",w:0,h:0,kb:200,f:"photo.jpg"}]}
+];
+var L="hi",file=null,last=null,fname="photo.jpg",sel=null;
 var $=function(i){return document.getElementById(i)};
 
+function buildDocs(){
+  var c=$("docs");c.innerHTML="";
+  DOCS.forEach(function(d,di){
+    var el=document.createElement("details"),s=document.createElement("summary");
+    s.textContent=d.n[L];el.appendChild(s);
+    d.i.forEach(function(it,ii){
+      var b=document.createElement("button");b.type="button";b.className="opt";
+      b.textContent=it.l[L]+(it.t?" — "+it.t:"");
+      b.setAttribute("aria-pressed",sel&&sel[0]===di&&sel[1]===ii);
+      b.onclick=function(){sel=[di,ii];apply(it,d);buildDocs();document.querySelectorAll("details")[di].open=true};
+      el.appendChild(b);
+    });
+    if(sel&&sel[0]===di)el.open=true;
+    c.appendChild(el);
+  });
+  if(sel){var d=DOCS[sel[0]],it=d.i[sel[1]];$("chosen").textContent="✔ "+T[L].picked+": "+d.n[L]+" — "+it.l[L]}
+}
+function apply(it){
+  $("w").value=it.w||"";$("h").value=it.h||"";$("kb").value=it.kb;
+  fname=it.f;$("dl").download=fname;
+}
+function showInfo(){$("info").textContent=T[L].res+": "+last.kb+" KB · "+last.w+"×"+last.h+" px"}
 function render(){
   document.querySelectorAll("[data-k]").forEach(function(e){e.textContent=T[L][e.dataset.k]});
   document.documentElement.lang=L;
   $("lang").textContent=L==="hi"?"English":"हिंदी";
+  buildDocs();
   if(last)showInfo();
 }
-function showInfo(){
-  $("info").textContent=T[L].res+": "+last.kb+" KB · "+last.w+"×"+last.h+" px";
-}
-function setPreset(p){
-  cur=p;
-  document.querySelectorAll(".chip").forEach(function(c){c.setAttribute("aria-pressed",c.dataset.p===p)});
-  $("w").value=P[p][0];$("h").value=P[p][1];$("kb").value=P[p][2];
-  $("dl").download=P[p][3];
-}
-document.querySelectorAll(".chip").forEach(function(c){c.onclick=function(){setPreset(c.dataset.p)}});
 $("lang").onclick=function(){L=L==="hi"?"en":"hi";render()};
-$("file").onchange=function(e){file=e.target.files[0]||null;$("fname").textContent=file?file.name:"";$("msg").textContent=""};
+function pick(f){file=f||null;$("fname").textContent=f?f.name:"";$("msg").textContent=""}
+$("b1").onclick=function(){$("urlrow").style.display="none";$("drvhint").style.display="none";$("f1").click()};
+$("b2").onclick=function(){$("urlrow").style.display="none";$("drvhint").style.display="block";$("f2").click()};
+$("b3").onclick=function(){$("drvhint").style.display="none";$("urlrow").style.display="flex"};
+$("f1").onchange=function(e){pick(e.target.files[0])};
+$("f2").onchange=function(e){pick(e.target.files[0])};
+$("load").onclick=async function(){
+  var u=$("url").value.trim();if(!u)return;
+  $("msg").textContent="";
+  try{
+    var r=await fetch(u),b=await r.blob();
+    if(!r.ok||b.type.indexOf("image")!==0)throw 0;
+    pick(new File([b],"image-from-url",{type:b.type}));
+  }catch(e){$("msg").textContent=T[L].urlfail}
+};
 
 function toBlob(cv,q){return new Promise(function(r){cv.toBlob(r,"image/jpeg",q)})}
 function loadImg(f){return new Promise(function(ok,no){
@@ -146,15 +201,16 @@ $("go").onclick=async function(){
   var msg=$("msg");msg.textContent="";
   if(!file){msg.textContent=T[L].nofile;return}
   var w=Math.round(+$("w").value),h=Math.round(+$("h").value),kb=+$("kb").value;
-  if(!(w>=20&&h>=20&&kb>=5)){msg.textContent=T[L].bad;return}
+  var autoSize=!w&&!h;
+  if(!(kb>=5)||(!autoSize&&!(w>=20&&h>=20))){msg.textContent=T[L].bad;return}
   var btn=$("go");btn.disabled=true;btn.textContent=T[L].wait;
   try{
-    var im=await loadImg(file);
+    var im=await loadImg(file),iw=im.naturalWidth,ih=im.naturalHeight;
+    if(autoSize){var k=Math.min(1,800/Math.max(iw,ih));w=Math.round(iw*k);h=Math.round(ih*k)}
     var cv=document.createElement("canvas");cv.width=w;cv.height=h;
     var cx=cv.getContext("2d");
     cx.fillStyle="#fff";cx.fillRect(0,0,w,h);
-    var s=Math.max(w/im.naturalWidth,h/im.naturalHeight);
-    var dw=im.naturalWidth*s,dh=im.naturalHeight*s;
+    var s=Math.max(w/iw,h/ih),dw=iw*s,dh=ih*s;
     cx.drawImage(im,(w-dw)/2,(h-dh)/2,dw,dh);
     var limit=kb*1024,lo=0.05,hi=0.95,best=null;
     var tiny=await toBlob(cv,lo);
@@ -168,7 +224,7 @@ $("go").onclick=async function(){
       if(last&&last.url)URL.revokeObjectURL(last.url);
       var url=URL.createObjectURL(best);
       last={url:url,kb:(best.size/1024).toFixed(1),w:w,h:h};
-      $("prev").src=url;$("dl").href=url;$("dl").download=P[cur][3];
+      $("prev").src=url;$("dl").href=url;$("dl").download=fname;
       $("out").style.display="block";showInfo();
       $("out").scrollIntoView({behavior:"smooth"});
     }
