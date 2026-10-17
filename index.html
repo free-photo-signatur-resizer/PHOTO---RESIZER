@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html lang="hi">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Free Photo & Signature Resizer 20KB 50KB (SSC, Bank, NEET, Instagram) | फ्री फोटो साइज़ बदलें</title>
-<meta name="description" content="Free photo aur signature resize tool: SSC, Bank, NEET, UPSC form, passport size, Instagram, YouTube, 16:9, 9:16. 20KB, 50KB. Hindi + English. Photo upload nahi hoti. फ्री फोटो और सिग्नेचर साइज़ बदलें।">
-<style>
+<html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Free Photo & Signature Resizer, Photo to PDF, Resume Maker | फ्री फॉर्म टूल्स</title><meta name="description" content="Free photo aur signature resize (20KB, 50KB), photo se PDF, signature saaf, Hindi resume maker aur naukri guide. SSC, Bank, NEET, UPSC. Sab ek jagah."><style>
+:root{--bg:#eef3f2;--card:#fff;--tx:#12202b;--mut:#51606b;--pri:#0e7c6b;--on:#fff;--bd:#cdd8d6;--hl:#f2b01e}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1517;--card:#162024;--tx:#eaf2f1;--mut:#9db0ae;--pri:#3cc4ad;--on:#06201b;--bd:#2a3a3d}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 "Noto Sans Devanagari",system-ui,sans-serif}
+.wrap{max-width:560px;margin:0 auto;padding:14px 16px 40px}
+h1{font-size:1.3rem;line-height:1.3;margin:0 0 6px}h2{font-size:1.05rem;margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:12px}
+.tool{display:block;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:10px;color:var(--tx);text-decoration:none}
+.tool b{display:block;font-size:1.05rem;color:var(--pri)}.tool span{color:var(--mut);font-size:.9rem}
+.note{color:var(--mut);font-size:.9rem}
+.go{display:block;width:100%;min-height:52px;border:0;border-radius:12px;background:var(--hl);color:#1a1200;font:inherit;font-weight:800;font-size:1.05rem;cursor:pointer;text-align:center;text-decoration:none;margin-top:10px;padding:13px}
+input,textarea,select{width:100%;font:inherit;padding:10px;border:2px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);margin-bottom:8px}
+input[type=file]{padding:16px;border-style:dashed;border-color:var(--pri)}
+label{display:block;font-size:.85rem;color:var(--mut)}
+a{color:var(--pri)}li{margin-bottom:6px}
+button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--hl);outline-offset:2px}
+
 :root{--bg:#eef3f2;--card:#fff;--tx:#12202b;--mut:#51606b;--pri:#0e7c6b;--on:#fff;--bd:#cdd8d6;--hl:#f2b01e;--err:#b3261e}
 @media (prefers-color-scheme:dark){:root{--bg:#0e1517;--card:#162024;--tx:#eaf2f1;--mut:#9db0ae;--pri:#3cc4ad;--on:#06201b;--bd:#2a3a3d;--hl:#f2b01e;--err:#ff8a80}}
 *{box-sizing:border-box}
@@ -47,10 +57,15 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--hl);outline-off
 .note{color:var(--mut);font-size:.88rem;margin:8px 0 0}
 .priv{border-left:4px solid var(--pri);padding-left:10px;margin:0 0 14px;font-size:.92rem}
 .hide{display:none}
-</style>
-</head>
-<body>
-<div class="wrap">
+.nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}.nav a{padding:7px 12px;border:2px solid var(--bd);border-radius:999px;color:var(--tx);text-decoration:none;font-size:.88rem;font-weight:700;background:var(--card)}#r_cv{background:#fff;color:#000;border:1px solid var(--bd);border-radius:8px;padding:18px;min-height:200px}#r_cv h2{font-size:1.4rem;margin:0}#r_cv h3{font-size:1rem;border-bottom:2px solid #000;margin:14px 0 4px}#r_cv div,#r_cv p{white-space:pre-wrap;margin:0}@media print{.noprint{display:none!important}body{background:#fff}.wrap{padding:0;max-width:none}#r_cv{border:0}}.view{display:none}</style></head><body><div class="wrap"><nav class="nav noprint"><a href="#home">🏠 Home</a><a href="#photo">📷 Photo</a><a href="#pdf">📄 PDF</a><a href="#sig">✍️ Signature</a><a href="#resume">📝 Resume</a><a href="#jobs">💼 नौकरी</a></nav><section class="view" id="v_home"><h1>Free Photo &amp; Signature Resizer + Form Tools<br>फ्री फॉर्म और नौकरी टूल्स</h1>
+<p class="note">एक ही जगह सब कुछ: फोटो/सिग्नेचर साइज़, फोटो से PDF, रिज्यूमे और नौकरी गाइड। सब फ्री। आपकी फोटो कहीं अपलोड नहीं होती, सब फोन में ही होता है।<br>All free, all in one place. Your files never leave your phone.</p>
+<a class="tool" href="#photo"><b>📷 Photo &amp; Signature Resizer</b><span>फोटो/सिग्नेचर का साइज़ बदलें: SSC, Bank, NEET, UPSC, पासपोर्ट, Instagram, YouTube, 20KB, 50KB</span></a>
+<a class="tool" href="#pdf"><b>📄 Photo to PDF</b><span>एक या कई फोटो से PDF बनाएँ, KB लिमिट के साथ। Make a PDF from photos.</span></a>
+<a class="tool" href="#sig"><b>✍️ Signature Cleaner</b><span>कागज़ पर की सिग्नेचर को साफ़ करें: सफ़ेद बैकग्राउंड, काली स्याही।</span></a>
+<a class="tool" href="#resume"><b>📝 Resume Maker (हिंदी / English)</b><span>फोन पर फ्री रिज्यूमे बनाएँ और PDF सेव करें।</span></a>
+<a class="tool" href="#jobs"><b>💼 नौकरी गाइड + फेक जॉब से बचाव</b><span>असली सरकारी वेबसाइट, अप्लाई के स्टेप, और ठगी से बचने के तरीके।</span></a>
+<button class="go" id="sh" type="button">📲 दोस्तों को शेयर करें / Share</button>
+<p class="note">ध्यान दें: फॉर्म के साइज़ और नियम बदलते रहते हैं। हमेशा ऑफिशियल नोटिफिकेशन से मिलाएँ।</p></section><section class="view" id="v_photo">
 <header>
   <div>
     <h1>Free Photo &amp; Signature Resizer<br>फ्री फोटो और सिग्नेचर साइज़ बदलें</h1>
@@ -97,9 +112,48 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--hl);outline-off
   <a id="dl" href="#" download="photo.jpg" data-k="dl"></a>
 </div>
 <p class="note" data-k="tip"></p>
-</div>
-
-<script>
+</section><section class="view" id="v_pdf"><h1>📄 Photo to PDF / फोटो से PDF</h1>
+<p class="note">एक या कई फोटो चुनें, हर फोटो एक पन्ने पर आएगी। Select one or many photos.</p>
+<div class="card"><input id="p_f" type="file" accept="image/*" multiple><p class="note" id="p_n"></p>
+<label for="p_kb">PDF का अधिकतम साइज़ KB में (खाली छोड़ सकते हैं) / Max KB (optional)</label><input id="p_kb" type="number" inputmode="numeric" placeholder="जैसे 200">
+<button class="go" id="p_go" type="button">PDF बनाएँ / Make PDF</button><p id="p_msg" style="font-weight:700"></p>
+<a class="go" id="p_dl" href="#" download="photos.pdf" style="display:none">⬇️ PDF डाउनलोड / Download</a></div></section><section class="view" id="v_sig"><h1>✍️ Signature Cleaner / सिग्नेचर साफ़ करें</h1>
+<p class="note">सफ़ेद कागज़ पर काली पेन से सिग्नेचर करें, उसकी साफ़ फोटो लें और यहाँ चुनें। फिर "Photo Resizer" में जाकर साइज़ फॉर्म के हिसाब से करें।</p>
+<div class="card"><input id="s_f" type="file" accept="image/*">
+<label for="s_t">हल्का / गंदा दिखे तो स्लाइडर चलाएँ / Adjust if faint or dirty</label><input id="s_t" type="range" min="60" max="220" value="140">
+<canvas id="s_c" style="max-width:100%;background:#fff;border:1px solid var(--bd);border-radius:8px"></canvas>
+<a class="go" id="s_dl" href="#" download="signature-clean.png">⬇️ डाउनलोड / Download</a>
+<a class="go" href="#photo" style="background:var(--pri);color:var(--on)">📷 अब साइज़ बदलें / Now resize</a></div>
+<p class="note">ध्यान दें: बहुत अँधेरी या परछाईं वाली फोटो में साफ़ नहीं होगा। रोशनी में सीधी फोटो लें।</p></section><section class="view" id="v_resume"><div class="noprint"><h1>📝 Resume Maker / रिज्यूमे बनाएँ</h1>
+<p class="note">जो आता है भरें, खाली छोड़ सकते हैं। नीचे रिज्यूमे अपने आप बनेगा। आपकी जानकारी फोन में ही रहती है।</p>
+<div class="card"><label for="r_cl">रिज्यूमे की भाषा / CV headings</label><select id="r_cl"><option value="hi">हिंदी</option><option value="en">English</option></select><div id="r_form"></div></div></div>
+<div id="r_cv"></div>
+<div class="noprint"><button class="go" onclick="window.print()">⬇️ PDF सेव / प्रिंट करें</button><p class="note">प्रिंट खुलने पर "Save as PDF" चुनें।</p></div></section><section class="view" id="v_jobs"><h1>💼 नौकरी गाइड / Jobs Guide</h1>
+<p class="note">हम खुद नौकरी नहीं देते। यहाँ सिर्फ सही रास्ता और बचाव की जानकारी है। नियम बदलते रहते हैं।</p>
+<div class="card"><h2>🏛️ असली सरकारी वेबसाइट</h2><ul>
+<li><a href="https://ncs.gov.in" target="_blank" rel="noopener">ncs.gov.in</a>: National Career Service, सरकारी और प्राइवेट नौकरियाँ</li>
+<li><a href="https://eshram.gov.in" target="_blank" rel="noopener">eshram.gov.in</a>: असंगठित क्षेत्र के मज़दूरों के लिए सरकारी रजिस्ट्रेशन पोर्टल</li>
+<li><a href="https://ssc.gov.in" target="_blank" rel="noopener">ssc.gov.in</a>: SSC भर्ती</li>
+<li><a href="https://ibps.in" target="_blank" rel="noopener">ibps.in</a>: बैंक भर्ती (IBPS)</li>
+<li><a href="https://nta.ac.in" target="_blank" rel="noopener">nta.ac.in</a>: NEET, JEE आदि</li>
+<li><a href="https://upsc.gov.in" target="_blank" rel="noopener">upsc.gov.in</a>: UPSC</li>
+<li><a href="https://indianrailways.gov.in" target="_blank" rel="noopener">indianrailways.gov.in</a>: रेलवे की जानकारी</li></ul></div>
+<div class="card"><h2>✅ अप्लाई कैसे करें</h2><ol>
+<li>चालू मोबाइल नंबर और ईमेल रखें।</li>
+<li><a href="#resume">रिज्यूमे बनाएँ</a>।</li>
+<li><a href="#photo">फोटो और सिग्नेचर</a> फॉर्म के साइज़ में तैयार करें, ज़रूरत हो तो <a href="#pdf">PDF</a> बनाएँ।</li>
+<li>ऑफिशियल नोटिफिकेशन पूरा पढ़ें: योग्यता, उम्र, फीस, आखिरी तारीख।</li>
+<li>फॉर्म ध्यान से भरें, जमा करने से पहले एक बार दोबारा जाँचें।</li>
+<li>रसीद या प्रिंट सेव करके रखें।</li></ol></div>
+<div class="card"><h2>⚠️ फेक जॉब से बचें</h2><ul>
+<li>जो "रजिस्ट्रेशन फीस", "ट्रेनिंग फीस" या "सिक्योरिटी" के नाम पर पैसे माँगे, उससे सावधान रहें।</li>
+<li>OTP, बैंक डिटेल या आधार की फोटो किसी अजनबी को न दें।</li>
+<li>"घर बैठे हज़ारों कमाओ" वाले WhatsApp या Telegram मैसेज पर भरोसा न करें।</li>
+<li>सरकारी भर्ती का फॉर्म सिर्फ ऑफिशियल (.gov.in) वेबसाइट पर भरें।</li>
+<li>ठगी हो जाए तो <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in</a> पर शिकायत करें या 1930 पर कॉल करें।</li></ul></div>
+<div class="card"><h2>🏢 प्राइवेट कंपनी की नौकरी</h2><p class="note" style="margin:0">Apna, WorkIndia जैसे ऐप भी हैं। इस्तेमाल से पहले रिव्यू देखें, और कंपनी की पहचान जाँचें। नौकरी के बदले कभी एडवांस पैसा न दें।</p></div></section></div><script>
+(function(){document.getElementById("sh").onclick=async function(){var d={title:document.title,text:"फ्री फोटो साइज़, PDF, रिज्यूमे और नौकरी गाइड: एक ही जगह",url:location.href.split("#")[0]};try{if(navigator.share){await navigator.share(d)}else{await navigator.clipboard.writeText(d.url);alert("Link copy ho gaya")}}catch(e){}};})();
+(function(){
 var T={
 hi:{sub:"फोटो या सिग्नेचर को फॉर्म या सोशल मीडिया के साइज़ में बदलें। फ्री, फोन पर।",
 priv:"आपकी फोटो कहीं अपलोड नहीं होती। सब कुछ आपके फोन में ही होता है।",
@@ -171,107 +225,4 @@ function choose(it){
   $("dl").download=(/Signature/.test(it[0])?"signature":"photo")+".jpg";
   setAsp();initFrame();
 }
-function setAsp(){var w=+$("w").value,h=+$("h").value;asp=(w>0&&h>0)?w/h:null}
-$("w").onchange=$("h").onchange=function(){chosen=null;$("plabel").textContent=T[L].pick;setAsp();initFrame()};
-
-/* photo sources */
-$("up").onclick=function(){var s=$("srcs");s.style.display=s.style.display==="grid"?"none":"grid"};
-function hideExtra(){$("urlrow").style.display="none";$("drvhint").classList.add("hide")}
-$("b1").onclick=function(){hideExtra();$("f1").click()};
-$("b2").onclick=function(){hideExtra();$("drvhint").classList.remove("hide");$("f2").click()};
-$("b3").onclick=function(){hideExtra();$("f3").click()};
-$("b4").onclick=function(){hideExtra();$("urlrow").style.display="flex"};
-["f1","f2","f3"].forEach(function(i){$(i).onchange=function(e){pick(e.target.files[0]);e.target.value=""}});
-$("load").onclick=async function(){
-  var u=$("url").value.trim();if(!u)return;$("msg").textContent="";
-  try{
-    var r=await fetch(u),b=await r.blob();
-    if(!r.ok||b.type.indexOf("image")!==0)throw 0;
-    pick(new File([b],"image",{type:b.type}));
-  }catch(e){alert(T[L].urlfail)}
-};
-function pick(f){
-  if(!f)return;
-  file=f;$("fname").textContent=f.name;$("msg").textContent="";
-  if(srcUrl)URL.revokeObjectURL(srcUrl);
-  srcUrl=URL.createObjectURL(f);
-  im.onload=function(){$("work").classList.remove("hide");setAsp();initFrame()};
-  im.src=srcUrl;
-  $("srcs").style.display="none";$("urlrow").style.display="none";$("out").classList.add("hide");
-}
-
-/* crop frame */
-function initFrame(){
-  if(!im.naturalWidth)return;
-  var dw=im.clientWidth,dh=im.clientHeight,w=dw,h=dh;
-  if(asp){if(dw/dh>asp){h=dh;w=h*asp}else{w=dw;h=w/asp}}
-  else{w=dw*.9;h=dh*.9}
-  fr={x:(dw-w)/2,y:(dh-h)/2,w:w,h:h};paint();
-}
-window.addEventListener("resize",initFrame);
-function paint(){var s=frame.style;s.left=fr.x+"px";s.top=fr.y+"px";s.width=fr.w+"px";s.height=fr.h+"px"}
-function place(x,y,w,h){
-  var dw=im.clientWidth,dh=im.clientHeight;
-  w=Math.max(40,w);h=Math.max(40,h);
-  var s=Math.min(1,dw/w,dh/h);w*=s;h*=s;
-  x=Math.min(Math.max(0,x),dw-w);y=Math.min(Math.max(0,y),dh-h);
-  fr={x:x,y:y,w:w,h:h};paint();
-}
-var ptrs={},g=null;
-function startG(hd){
-  var k=Object.keys(ptrs),p=ptrs[k[0]];
-  g={f:{x:fr.x,y:fr.y,w:fr.w,h:fr.h},n:k.length,hd:hd,p:{x:p.x,y:p.y}};
-  if(k.length===2){var a=ptrs[k[0]],b=ptrs[k[1]];g.d=Math.hypot(a.x-b.x,a.y-b.y)||1}
-}
-frame.onpointerdown=function(e){
-  e.preventDefault();frame.setPointerCapture(e.pointerId);
-  ptrs[e.pointerId]={x:e.clientX,y:e.clientY};
-  startG(e.target===$("hd")||(g&&g.hd));
-};
-frame.onpointermove=function(e){
-  if(!ptrs[e.pointerId]||!g)return;
-  ptrs[e.pointerId]={x:e.clientX,y:e.clientY};
-  var k=Object.keys(ptrs),f=g.f;
-  if(k.length===2&&g.n===2){
-    var a=ptrs[k[0]],b=ptrs[k[1]],sc=Math.hypot(a.x-b.x,a.y-b.y)/g.d;
-    var nw=f.w*sc,nh=asp?nw/asp:f.h*sc;
-    place(f.x+f.w/2-nw/2,f.y+f.h/2-nh/2,nw,nh);
-  }else if(k.length===1&&g.n===1){
-    var dx=e.clientX-g.p.x,dy=e.clientY-g.p.y;
-    if(g.hd){var w=f.w+dx;place(f.x,f.y,w,asp?w/asp:f.h+dy)}
-    else place(f.x+dx,f.y+dy,f.w,f.h);
-  }
-};
-function endP(e){delete ptrs[e.pointerId];if(Object.keys(ptrs).length)startG(false);else g=null}
-frame.onpointerup=frame.onpointercancel=endP;
-
-/* resize */
-function toBlob(cv,q){return new Promise(function(r){cv.toBlob(r,"image/jpeg",q)})}
-$("go").onclick=async function(){
-  var msg=$("msg");msg.textContent="";
-  var w=Math.round(+$("w").value),h=Math.round(+$("h").value),kb=+$("kb").value;
-  var k=im.naturalWidth/im.clientWidth,sx=fr.x*k,sy=fr.y*k,sw=fr.w*k,sh=fr.h*k;
-  if(!(w>0&&h>0)){var c=Math.min(1,1200/Math.max(sw,sh));w=Math.round(sw*c);h=Math.round(sh*c)}
-  if(!(kb>=5)||w<20||h<20){msg.textContent=T[L].bad;return}
-  var btn=$("go");btn.disabled=true;btn.textContent=T[L].wait;
-  try{
-    var cv=document.createElement("canvas");cv.width=w;cv.height=h;
-    var cx=cv.getContext("2d");cx.fillStyle="#fff";cx.fillRect(0,0,w,h);
-    cx.drawImage(im,sx,sy,sw,sh,0,0,w,h);
-    var limit=kb*1024,lo=0.05,hi=0.95,best=await toBlob(cv,lo);
-    if(best.size>limit){msg.textContent=T[L].fail}
-    else{
-      for(var i=0;i<8;i++){var mid=(lo+hi)/2,b=await toBlob(cv,mid);if(b.size<=limit){best=b;lo=mid}else hi=mid}
-      if(last)URL.revokeObjectURL(last.url);
-      var url=URL.createObjectURL(best);
-      last={url:url,kb:(best.size/1024).toFixed(1),w:w,h:h};
-      $("prev").src=url;$("dl").href=url;info();
-      $("out").classList.remove("hide");$("out").scrollIntoView({behavior:"smooth"});
-    }
-  }catch(e){msg.textContent=T[L].fail}
-  btn.disabled=false;btn.textContent=T[L].go;
-};
-render();
-</script>
-</body>
-</html>
+fun
