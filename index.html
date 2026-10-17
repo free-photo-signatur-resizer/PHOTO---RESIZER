@@ -57,7 +57,7 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--hl);outline-off
 .note{color:var(--mut);font-size:.88rem;margin:8px 0 0}
 .priv{border-left:4px solid var(--pri);padding-left:10px;margin:0 0 14px;font-size:.92rem}
 .hide{display:none}
-.nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}.nav a{padding:7px 12px;border:2px solid var(--bd);border-radius:999px;color:var(--tx);text-decoration:none;font-size:.88rem;font-weight:700;background:var(--card)}#r_cv{background:#fff;color:#000;border:1px solid var(--bd);border-radius:8px;padding:18px;min-height:200px}#r_cv h2{font-size:1.4rem;margin:0}#r_cv h3{font-size:1rem;border-bottom:2px solid #000;margin:14px 0 4px}#r_cv div,#r_cv p{white-space:pre-wrap;margin:0}@media print{.noprint{display:none!important}body{background:#fff}.wrap{padding:0;max-width:none}#r_cv{border:0}}.view{display:none}#v_home{display:block}.err{background:#b3261e;color:#fff;padding:10px;font:14px sans-serif}</style></head><body><script>window.onerror=function(m,u,l){var d=document.createElement("div");d.className="err";d.textContent="Error: "+m+" (line "+l+")";document.body.insertBefore(d,document.body.firstChild)}</script><div class="wrap"><nav class="nav noprint"><a href="#home">🏠 Home</a><a href="#photo">📷 Photo</a><a href="#pdf">📄 PDF</a><a href="#sig">✍️ Signature</a><a href="#resume">📝 Resume</a><a href="#jobs">💼 नौकरी</a></nav><section class="view" id="v_home"><h1>Free Photo &amp; Signature Resizer + Form Tools<br>फ्री फॉर्म और नौकरी टूल्स</h1>
+.nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}.nav a{padding:7px 12px;border:2px solid var(--bd);border-radius:999px;color:var(--tx);text-decoration:none;font-size:.88rem;font-weight:700;background:var(--card)}#r_cv{background:#fff;color:#000;border:1px solid var(--bd);border-radius:8px;padding:18px;min-height:200px}#r_cv h2{font-size:1.4rem;margin:0}#r_cv h3{font-size:1rem;border-bottom:2px solid #000;margin:14px 0 4px}#r_cv div,#r_cv p{white-space:pre-wrap;margin:0}@media print{.noprint{display:none!important}body{background:#fff}.wrap{padding:0;max-width:none}#r_cv{border:0}}.view{display:none}#v_home{display:block}.err{background:#b3261e;color:#fff;padding:10px;font:14px sans-serif}</style></head><body><script>window.onerror=function(m,u,l){var d=document.createElement("div");d.className="err";d.textContent="Error: "+m+" (line "+l+")";document.body.insertBefore(d,document.body.firstChild)}</script><div class="wrap"><nav class="nav noprint"><a href="#home">🏠 Home</a><a href="#photo">📷 Photo</a><a href="#pdf">📄 PDF</a><a href="#sig">✍️ Signature</a><a href="#resume">📝 Resume</a><a href="#jobs">💼 नौकरी</a></nav><p class="note" id="diag" style="margin:0 0 8px">v3 ⚠️ JavaScript नहीं चला / JS did not run</p><section class="view" id="v_home"><h1>Free Photo &amp; Signature Resizer + Form Tools<br>फ्री फॉर्म और नौकरी टूल्स</h1>
 <p class="note">एक ही जगह सब कुछ: फोटो/सिग्नेचर साइज़, फोटो से PDF, रिज्यूमे और नौकरी गाइड। सब फ्री। आपकी फोटो कहीं अपलोड नहीं होती, सब फोन में ही होता है।<br>All free, all in one place. Your files never leave your phone.</p>
 <a class="tool" href="#photo"><b>📷 Photo &amp; Signature Resizer</b><span>फोटो/सिग्नेचर का साइज़ बदलें: SSC, Bank, NEET, UPSC, पासपोर्ट, Instagram, YouTube, 20KB, 50KB</span></a>
 <a class="tool" href="#pdf"><b>📄 Photo to PDF</b><span>एक या कई फोटो से PDF बनाएँ, KB लिमिट के साथ। Make a PDF from photos.</span></a>
@@ -152,8 +152,12 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--hl);outline-off
 <li>सरकारी भर्ती का फॉर्म सिर्फ ऑफिशियल (.gov.in) वेबसाइट पर भरें।</li>
 <li>ठगी हो जाए तो <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in</a> पर शिकायत करें या 1930 पर कॉल करें।</li></ul></div>
 <div class="card"><h2>🏢 प्राइवेट कंपनी की नौकरी</h2><p class="note" style="margin:0">Apna, WorkIndia जैसे ऐप भी हैं। इस्तेमाल से पहले रिव्यू देखें, और कंपनी की पहचान जाँचें। नौकरी के बदले कभी एडवांस पैसा न दें।</p></div></section></div><script>
-(function(){document.getElementById("sh").onclick=async function(){var d={title:document.title,text:"फ्री फोटो साइज़, PDF, रिज्यूमे और नौकरी गाइड: एक ही जगह",url:location.href.split("#")[0]};try{if(navigator.share){await navigator.share(d)}else{await navigator.clipboard.writeText(d.url);alert("Link copy ho gaya")}}catch(e){}};})();
-(function(){
+try{(function(){var V=["home","photo","pdf","sig","resume","jobs"],TT={home:"Free Photo & Signature Resizer, Photo to PDF, Resume Maker | फ्री फॉर्म टूल्स",photo:"Free Photo & Signature Resizer 20KB 50KB (SSC, Bank, NEET) | फ्री फोटो साइज़",pdf:"Photo to PDF Free (KB limit) | फोटो से PDF",sig:"Signature Cleaner Free | सिग्नेचर साफ़ करें",resume:"Free Resume Maker Hindi English | रिज्यूमे बनाएँ",jobs:"Naukri Guide aur Fake Job se Bachav | नौकरी गाइड"};
+function show(){var h=(location.hash||"#home").slice(1);if(V.indexOf(h)<0)h="home";V.forEach(function(v){document.getElementById("v_"+v).style.display=v===h?"block":"none"});document.title=TT[h];window.scrollTo(0,0)}
+window.addEventListener("hashchange",show);show();document.getElementById("diag").textContent="v3 ✓";})();}catch(e){window.onerror(String(e.message),"",0)}
+
+try{(function(){document.getElementById("sh").onclick=async function(){var d={title:document.title,text:"फ्री फोटो साइज़, PDF, रिज्यूमे और नौकरी गाइड: एक ही जगह",url:location.href.split("#")[0]};try{if(navigator.share){await navigator.share(d)}else{await navigator.clipboard.writeText(d.url);alert("Link copy ho gaya")}}catch(e){}};})();}catch(e){window.onerror(String(e.message),"",0)}
+try{(function(){
 var T={
 hi:{sub:"फोटो या सिग्नेचर को फॉर्म या सोशल मीडिया के साइज़ में बदलें। फ्री, फोन पर।",
 priv:"आपकी फोटो कहीं अपलोड नहीं होती। सब कुछ आपके फोन में ही होता है।",
@@ -326,8 +330,8 @@ $("go").onclick=async function(){
   btn.disabled=false;btn.textContent=T[L].go;
 };
 render();
-})();
-(function(){var $=function(i){return document.getElementById(i)},files=[];
+})();}catch(e){window.onerror(String(e.message),"",0)}
+try{(function(){var $=function(i){return document.getElementById(i)},files=[];
 $("p_f").onchange=function(e){files=Array.prototype.slice.call(e.target.files);$("p_n").textContent=files.length+" photo"};
 function load(f){return new Promise(function(ok,no){var i=new Image(),u=URL.createObjectURL(f);i.onload=function(){URL.revokeObjectURL(u);ok(i)};i.onerror=no;i.src=u})}
 function jpg(img,max,q){var s=Math.min(1,max/Math.max(img.naturalWidth,img.naturalHeight)),w=Math.round(img.naturalWidth*s),h=Math.round(img.naturalHeight*s),c=document.createElement("canvas");c.width=w;c.height=h;var x=c.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,w,h);x.drawImage(img,0,0,w,h);return new Promise(function(r){c.toBlob(async function(b){r({w:w,h:h,b:new Uint8Array(await b.arrayBuffer())})},"image/jpeg",q)})}
@@ -350,14 +354,14 @@ $("p_go").onclick=async function(){
  for(var m of S){for(var q of Q){var L=[];for(var im of imgs)L.push(await jpg(im,m,q));best=pdf(L);if(!lim||best.size<=lim){ok=true;break}}if(ok)break}
  var kb=(best.size/1024).toFixed(1);
  msg.textContent=(lim&&!ok)?("इतना छोटा नहीं हो पाया ("+kb+" KB)। फोटो कम करें / Could not reach the limit ("+kb+" KB). Use fewer photos."):("तैयार: "+kb+" KB / Ready");
- $("p_dl").href=URL.createObjectURL(best);$("p_dl").style.display="block"}catch(e){msg.textContent="फोटो नहीं खुली / Could not read a photo"}};})();
-(function(){var $=function(i){return document.getElementById(i)},img=null;
+ $("p_dl").href=URL.createObjectURL(best);$("p_dl").style.display="block"}catch(e){msg.textContent="फोटो नहीं खुली / Could not read a photo"}};})();}catch(e){window.onerror(String(e.message),"",0)}
+try{(function(){var $=function(i){return document.getElementById(i)},img=null;
 $("s_f").onchange=function(e){var f=e.target.files[0];if(!f)return;var i=new Image();i.onload=function(){img=i;draw()};i.src=URL.createObjectURL(f)};
 function draw(){if(!img)return;var c=$("s_c"),s=Math.min(1,1000/Math.max(img.naturalWidth,img.naturalHeight));c.width=Math.round(img.naturalWidth*s);c.height=Math.round(img.naturalHeight*s);var x=c.getContext("2d");x.drawImage(img,0,0,c.width,c.height);var d=x.getImageData(0,0,c.width,c.height),p=d.data,t=+$("s_t").value;
 for(var i=0;i<p.length;i+=4){var g=.299*p[i]+.587*p[i+1]+.114*p[i+2],a=Math.min(1,Math.max(0,(g-(t-35))/70)),v=Math.round(a*255);p[i]=p[i+1]=p[i+2]=v;p[i+3]=255}
 x.putImageData(d,0,0);c.toBlob(function(b){$("s_dl").href=URL.createObjectURL(b)},"image/png")}
-$("s_t").oninput=draw;})();
-(function(){var $=function(i){return document.getElementById(i)};
+$("s_t").oninput=draw;})();}catch(e){window.onerror(String(e.message),"",0)}
+try{(function(){var $=function(i){return document.getElementById(i)};
 var F=[["name","नाम / Name"],["phone","फोन / Phone"],["email","Email"],["addr","पता / Address"],["dob","जन्म तिथि / Date of Birth"],["obj","उद्देश्य / Objective",1,"मेहनती और ईमानदार, काम सीखने को तैयार।"],["work","काम का अनुभव / Work Experience",1,"मिस्त्री हेल्पर: ABC कंस्ट्रक्शन, 3 साल"],["skill","हुनर / Skills",1,"ईंट जोड़ाई, प्लास्टर, सरिया बाँधना"],["edu","पढ़ाई / Education",1,"10वीं पास, 2018"],["lang","भाषाएँ / Languages",0,"हिंदी, English"]];
 var H={hi:{obj:"उद्देश्य",work:"काम का अनुभव",skill:"हुनर",edu:"पढ़ाई",lang:"भाषाएँ",dob:"जन्म तिथि"},en:{obj:"Objective",work:"Work Experience",skill:"Skills",edu:"Education",lang:"Languages",dob:"Date of Birth"}};
 F.forEach(function(f){var l=document.createElement("label");l.textContent=f[1];var e=document.createElement(f[2]?"textarea":"input");e.id="f_"+f[0];if(f[2])e.rows=3;e.placeholder=f[3]||"";e.oninput=draw;$("r_form").appendChild(l);$("r_form").appendChild(e)});
@@ -367,8 +371,5 @@ function draw(){var cv=$("r_cv"),h=H[$("r_cl").value];cv.textContent="";
 if(v("name")){var t=document.createElement("h2");t.textContent=v("name");cv.appendChild(t)}
 var c=[v("phone"),v("email"),v("addr")].filter(Boolean).join(" · ");if(c){var p=document.createElement("p");p.textContent=c;cv.appendChild(p)}
 ["dob","obj","work","skill","edu","lang"].forEach(function(k){var x=v(k);if(!x)return;var s=document.createElement("h3");s.textContent=h[k];var d=document.createElement("div");d.textContent=x;cv.appendChild(s);cv.appendChild(d)})}
-draw();})();
-(function(){var V=["home","photo","pdf","sig","resume","jobs"],TT={home:"Free Photo & Signature Resizer, Photo to PDF, Resume Maker | फ्री फॉर्म टूल्स",photo:"Free Photo & Signature Resizer 20KB 50KB (SSC, Bank, NEET) | फ्री फोटो साइज़",pdf:"Photo to PDF Free (KB limit) | फोटो से PDF",sig:"Signature Cleaner Free | सिग्नेचर साफ़ करें",resume:"Free Resume Maker Hindi English | रिज्यूमे बनाएँ",jobs:"Naukri Guide aur Fake Job se Bachav | नौकरी गाइड"};
-function show(){var h=(location.hash||"#home").slice(1);if(V.indexOf(h)<0)h="home";V.forEach(function(v){document.getElementById("v_"+v).style.display=v===h?"block":"none"});document.title=TT[h];window.scrollTo(0,0)}
-window.addEventListener("hashchange",show);show();})();
+draw();})();}catch(e){window.onerror(String(e.message),"",0)}
 </script></body></html>
