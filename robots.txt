@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://free-photo-signatur-resizer.github.io/PHOTO---RESIZER/sitemap.xml

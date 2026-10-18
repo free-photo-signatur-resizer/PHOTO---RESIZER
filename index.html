@@ -336,6 +336,7 @@ $("go").onclick=async function(){
   btn.disabled=false;btn.textContent=T[L].go;
 };
 render();
+(function(){var q=new URLSearchParams(location.search).get("p");if(!q)return;var sl=function(x){return x.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")};G.forEach(function(g){g.i.forEach(function(it){if(sl(it[0])===q)choose(it)})})})();
 })();}catch(e){window.onerror(String(e.message),"",0)}
 try{(function(){var $=function(i){return document.getElementById(i)},files=[];
 $("p_f").onchange=function(e){files=Array.prototype.slice.call(e.target.files);$("p_n").textContent=files.length+" photo"};
